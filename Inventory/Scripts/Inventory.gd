@@ -11,7 +11,7 @@ var inventory_item_scene  = preload("res://Inventory/Items/InventoryItem.tscn")
 @export var inventory_slot_scene: PackedScene
 var slots: Array[InventorySlot]
 
-# @export var tooltip: Tooltip # Must be shared among all instanesself
+@export var tooltip: Tooltip # Must be shared among all instanesself
 
 static var selected_item: Item = null
 
@@ -23,12 +23,12 @@ func _ready():
 		inventory_grid.add_child(slot)
 		slot.slot_input.connect(self._on_slot_input) # binding not necessary as
 		slot.slot_hovered.connect(self._on_slot_hovered) # it does while emit() call
-	#tooltip.visible = false
+	tooltip.visible = false
 
 func _process(delta):
-	#tooltip.global_position = get_global_mouse_position() + Vector2.ONE * 8
+	# tooltip.global_position = get_global_mouse_position() + Vector2.ONE * 8
 	if selected_item:
-		#tooltip.visible = false
+		tooltip.visible = false
 		selected_item.global_position = get_global_mouse_position()
 
 func _on_slot_input(which: InventorySlot, action: InventorySlot.InventorySlotAction):
@@ -45,10 +45,10 @@ func _on_slot_input(which: InventorySlot, action: InventorySlot.InventorySlotAct
 
 func _on_slot_hovered(which: InventorySlot, is_hovering: bool):
 	if which.item:
-		#tooltip.set_text(which.item.item_name)
-		#tooltip.visible = is_hovering
-		print("hover")
-
+		tooltip.set_text(which.item.item_name)
+		tooltip.visible = is_hovering
+		tooltip.global_position = which.global_position
+		tooltip.z_index = 140
 
 
 # API::
@@ -106,8 +106,6 @@ func all(_name: String) -> Array[Item]:
 		if slot.item and slot.item.item_name == _name:
 			items.append(slot.item)
 	return items
-
-
 
 # !DESTRUCTUVE (removes all items of a particular type)
 func remove_all(_name: String) -> void:

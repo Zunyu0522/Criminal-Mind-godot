@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://o62pj4vtcriq"]
 
-[ext_resource type="Script" path="res://Inventory/Item.gd" id="1_232e4"]
+[ext_resource type="Script" path="res://Inventory/Scripts/Item.gd" id="1_232e4"]
 [ext_resource type="Texture2D" uid="uid://b0du3tlww400j" path="res://Inventory/Sprites/Knife.png" id="2_odqgj"]
 
 [node name="IKnife" type="Node"]

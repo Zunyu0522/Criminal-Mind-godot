@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://bve7s43c4w5j5"]
+
+[ext_resource type="FontFile" uid="uid://coivbs3wbbg7i" path="res://PixelOperator8.ttf" id="2_88dgj"]
+
+[sub_resource type="GDScript" id="GDScript_eyt1r"]
+script/source = "extends ColorRect
+class_name Tooltip
+
+@onready var margin_container: MarginContainer = $MarginContainer
+@onready var item_name: Label = $MarginContainer/Label
+
+func set_text(_text: String):
+	self.item_name.text = _text
+	margin_container.size = Vector2()
+	size = margin_container.size
+"
+
+[node name="Tooltip" type="ColorRect"]
+offset_right = 140.0
+offset_bottom = 30.0
+color = Color(0, 0, 0, 1)
+script = SubResource("GDScript_eyt1r")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 140.0
+offset_bottom = 30.0
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_88dgj")
+text = "Test Item 1"
+vertical_alignment = 1

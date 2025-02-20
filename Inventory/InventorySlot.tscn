@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://by1lqbm1u8scs"]
 
-[ext_resource type="Script" path="res://Inventory/InventorySlot.gd" id="1_m3p8j"]
+[ext_resource type="Script" path="res://Inventory/Scripts/InventorySlot.gd" id="1_m3p8j"]
 [ext_resource type="Texture2D" uid="uid://bo3os6xxsqh15" path="res://Inventory/Sprites/Scalable_screen 16x16.png" id="2_vba0t"]
 
 [node name="InventorySlot" type="CenterContainer"]
