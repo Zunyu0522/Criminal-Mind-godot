@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cimtn27qvmqnc"]
+[gd_scene load_steps=6 format=3 uid="uid://cimtn27qvmqnc"]
 
 [ext_resource type="Script" path="res://Inventory/Scripts/Inventory.gd" id="1_hxdm8"]
 [ext_resource type="PackedScene" uid="uid://by1lqbm1u8scs" path="res://Inventory/InventorySlot.tscn" id="2_edstu"]
 [ext_resource type="Script" path="res://Inventory/Scripts/Tooltip.gd" id="3_d15nb"]
 [ext_resource type="FontFile" uid="uid://coivbs3wbbg7i" path="res://PixelOperator8.ttf" id="4_rrwhb"]
+[ext_resource type="Texture2D" uid="uid://8xpu4sioi1so" path="res://Inventory/Icons/Inventory icon.png" id="5_7xmqr"]
 
 [node name="Control" type="Control" node_paths=PackedStringArray("inventory_grid", "tooltip")]
 layout_mode = 3
@@ -18,6 +19,7 @@ cols = 9
 inventory_grid = NodePath("GridContainer")
 inventory_slot_scene = ExtResource("2_edstu")
 tooltip = NodePath("Tooltip")
+closed_pos = Vector2(0, -60)
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 0
@@ -41,3 +43,18 @@ offset_bottom = 40.0
 [node name="Label" type="Label" parent="Tooltip/MarginContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_rrwhb")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_top = 60.0
+offset_right = 60.0
+offset_bottom = 120.0
+texture_normal = ExtResource("5_7xmqr")
+texture_pressed = ExtResource("5_7xmqr")
+texture_hover = ExtResource("5_7xmqr")
+texture_disabled = ExtResource("5_7xmqr")
+texture_focused = ExtResource("5_7xmqr")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="gui_input" from="TextureButton" to="." method="_on_bag_button_input"]

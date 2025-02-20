@@ -13,9 +13,15 @@ var slots: Array[InventorySlot]
 
 @export var tooltip: Tooltip # Must be shared among all instanesself
 
+@export var open_pos: Vector2
+@export var closed_pos: Vector2
+var target_pos: Vector2
+var is_open: bool = false
+
 static var selected_item: Item = null
 
 func _ready():
+	toggle_on(is_open)
 	inventory_grid.columns = cols
 	for i in range(rows * cols):
 		var slot = inventory_slot_scene.instantiate()
@@ -27,6 +33,7 @@ func _ready():
 
 func _process(delta):
 	# tooltip.global_position = get_global_mouse_position() + Vector2.ONE * 8
+	global_position = global_position.move_toward(target_pos, 1)
 	if selected_item:
 		tooltip.visible = false
 		selected_item.global_position = get_global_mouse_position()
@@ -50,6 +57,17 @@ func _on_slot_hovered(which: InventorySlot, is_hovering: bool):
 		tooltip.global_position = which.global_position
 		tooltip.z_index = 140
 
+func _on_bag_button_input(event):
+	if event is InputEventMouseButton and event.pressed:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			is_open = !is_open
+			toggle_on(is_open)
+
+func toggle_on(open: bool):
+	if open:
+		target_pos = open_pos
+	else:
+		target_pos = closed_pos
 
 # API::
 
