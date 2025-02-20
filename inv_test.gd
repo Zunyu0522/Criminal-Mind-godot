@@ -13,6 +13,8 @@ func _ready():
 	var temp:Item = test_item.instantiate()
 	add_child(temp)
 	inventory.add_item(temp, 1)
+	
+	Dialogic.start("playthrough1")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

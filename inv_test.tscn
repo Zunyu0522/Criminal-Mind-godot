@@ -3,4 +3,5 @@
 [ext_resource type="Script" path="res://inv_test.gd" id="1_tdcpr"]
 
 [node name="Inv_Scene" type="Node2D"]
+z_index = 5
 script = ExtResource("1_tdcpr")

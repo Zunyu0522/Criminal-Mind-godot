@@ -1,0 +1,36 @@
+[background arg="res://SceneArt/Main Office.png" fade="0.0"]
+You turn around, and you find a man lying in a pool of blood a few meters away; gutted like a hog.
+[background arg="res://SceneArt/Body Zoom.png" fade="0.0"]
+You almost choked at the sight.
+[background scene="res://scenes/main_office.tscn" fade="0.0"]
+As your mind clears, you begin analyzing the situation.
+A knife is in your hand, and you are covered in blood.
+There is a clock on the wall\: 5\:00.
+It is an office, but it feels like hell.
+[wait time="0.5"]
+do GameState.pause()
+Taking the belongings of the dead is unethical, but the phone might come in handy.
+[background arg="res://SceneArt/Bathroom.png" fade="0.0"]
+You come to the bathroom, trying to figure out what to do next.
+[background arg="res://SceneArt/Cleaning Schedule.png" fade="0.0"]
+You see a schedule on the janitor's closet.
+[wait_input]
+The schedule says the trash pickup comes at 5\:30.
+[background scene="res://scenes/body_shot.tscn" fade="0.0"]
+[wait time="0.5"]
+do GameState.pause()
+[background arg="res://SceneArt/Body Zoom.png" fade="0.0"]
+You wipe off the blood using the paper towels, and put it in your pocket.
+[background scene="res://scenes/trash_dump.tscn" fade="0.0"]
+You at the trash room.
+You don't have anything to throw away.
+[wait time="0.5"]
+do GameState.pause()
+You throw away the paper towels and the knife, hoping the trash pickup will destroy the evidence.
+[background arg="res://SceneArt/Main Office.png" fade="0.0"]
+You should make yourself look like a victim, so you smash your head against the wall.
+You have made sure everything's done correctly. You call the police.
+Let's hope no one comes out of these rooms.
+[background arg="res://SceneArt/Hallway.png" fade="0.0"]
+The door is locked.
+You shouldn't leave just like that!
