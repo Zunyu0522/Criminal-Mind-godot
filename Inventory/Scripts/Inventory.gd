@@ -1,6 +1,8 @@
 extends Control
 class_name Inventory
 
+static var WhichInstance: Inventory;
+
 var inventory_item_scene  = preload("res://Inventory/Items/InventoryItem.tscn")
 
 @export var rows: int = 3
@@ -20,6 +22,8 @@ var is_open: bool = false
 
 static var selected_item: Item = null
 
+@export var item_spawns = []
+
 func _ready():
 	toggle_on(is_open)
 	inventory_grid.columns = cols
@@ -30,6 +34,11 @@ func _ready():
 		slot.slot_input.connect(self._on_slot_input) # binding not necessary as
 		slot.slot_hovered.connect(self._on_slot_hovered) # it does while emit() call
 	tooltip.visible = false
+	
+	if Inventory.WhichInstance == null:
+		Inventory.WhichInstance = self
+	else:
+		free()
 
 func _process(delta):
 	# tooltip.global_position = get_global_mouse_position() + Vector2.ONE * 8
@@ -70,6 +79,15 @@ func toggle_on(open: bool):
 		target_pos = closed_pos
 
 # API::
+
+#spawn item and add to inventory
+func spawn_item(item_name: String):
+	for i in item_spawns.size():
+		var itm: ItemSpawnResource = item_spawns[i]
+		if itm.item_name == item_name:
+			var tmp: Item = itm.item_scene.instantiate()
+			add_item(tmp, 1)
+			return
 
 # !DESTRUCTUVE (removes item itself from world  and adds its copy to inventory)
 # Calling thius func impies that item is not already in inventory

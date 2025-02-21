@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://57dm3yt6pnrv"]
+[gd_scene load_steps=6 format=3 uid="uid://57dm3yt6pnrv"]
 
 [ext_resource type="Script" path="res://scenes/main_office.gd" id="1_16u8x"]
 [ext_resource type="Texture2D" uid="uid://0wsfwaqioqx7" path="res://SceneArt/Main Office.png" id="2_pmksp"]
 [ext_resource type="Script" path="res://scenes/item.gd" id="3_jrwfk"]
 [ext_resource type="PackedScene" uid="uid://xkgc22deglng" path="res://scenes/core/cursor_item.tscn" id="4_54aww"]
+[ext_resource type="Script" path="res://Exploration/Interactable.gd" id="5_e1hga"]
 
 [node name="MainOffice" type="Control"]
 layout_mode = 3
@@ -51,6 +52,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_lock_ = true
+
+[node name="Interactable" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 259.0
+offset_top = 281.0
+offset_right = 299.0
+offset_bottom = 321.0
+script = ExtResource("5_e1hga")
+jump_label = "~Phone"
 
 [connection signal="mouse_entered" from="Item" to="Item" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Item" to="Item" method="_on_mouse_exited"]

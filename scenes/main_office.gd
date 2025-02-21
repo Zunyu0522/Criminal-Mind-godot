@@ -14,7 +14,6 @@ extends DialogicBackground
 	#image_node.anchor_right = 1
 	#image_node.anchor_bottom = 1
 
-
 func _update_background(argument:String, _time:float) -> void:
 	pass
 	#if argument.begins_with('res://'):

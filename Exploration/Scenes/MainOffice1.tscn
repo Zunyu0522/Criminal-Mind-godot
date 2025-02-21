@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://5c1ws5pccnij"]
+
+[ext_resource type="PackedScene" uid="uid://o62pj4vtcriq" path="res://Inventory/Items/I_Knife.tscn" id="2_hd3sm"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Items" type="Node2D" parent="."]
+position = Vector2(960, 640)
+
+[node name="IKnife" parent="Items" instance=ExtResource("2_hd3sm")]

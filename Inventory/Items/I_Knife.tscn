@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://o62pj4vtcriq"]
+[gd_scene load_steps=4 format=3 uid="uid://o62pj4vtcriq"]
 
 [ext_resource type="Script" path="res://Inventory/Scripts/Item.gd" id="1_232e4"]
 [ext_resource type="Texture2D" uid="uid://b0du3tlww400j" path="res://Inventory/Sprites/Knife.png" id="2_odqgj"]
+[ext_resource type="Texture2D" uid="uid://dow15e5dyso2r" path="res://Inventory/Icons/Knife.png" id="3_f31f2"]
 
 [node name="IKnife" type="Node"]
 script = ExtResource("1_232e4")
@@ -9,4 +10,7 @@ item_name = "Knife"
 icon = ExtResource("2_odqgj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(2, 2)
+position = Vector2(288, 288)
+rotation = 2.89201
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_f31f2")
