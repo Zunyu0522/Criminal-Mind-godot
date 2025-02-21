@@ -68,6 +68,7 @@ enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 
 CursorItem=""
 InputBlocker=""
+Inventory=""
 
 [input]
 
