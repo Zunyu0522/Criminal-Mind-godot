@@ -16,17 +16,25 @@ do GameState.add_item("Phone")
 label ~Bathroom
 [background arg="res://SceneArt/Bathroom.png" fade="0.0"]
 You come to the bathroom, trying to figure out what to do next.
-label ~Schedule
+label JanitorRoom
+[background scene="res://scenes/janitor_room.tscn" fade="0.0"]
+[wait time="0.5"]
+do GameState.pause()
+label PaperTowelPickup
+You wipe off the blood using the paper towels, and put it in your pocket.
+do GameState.add_item("PaperTowel")
+[wait time="0.5"]
+do GameState.pause()
+label JanitorSchedule
 [background arg="res://SceneArt/Cleaning Schedule.png" fade="0.0"]
 You see a schedule on the janitor's closet.
 [wait_input]
 The schedule says the trash pickup comes at 5\:30.
+jump JanitorRoom
 [background scene="res://scenes/body_shot.tscn" fade="0.0"]
-here's some text
 [wait time="0.5"]
 do GameState.pause()
 [background arg="res://SceneArt/Body Zoom.png" fade="0.0"]
-You wipe off the blood using the paper towels, and put it in your pocket.
 [background scene="trash_dump.tscn" fade="0.0"]
 You at the trash room.
 You don't have anything to throw away.

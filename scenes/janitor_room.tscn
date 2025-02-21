@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3dqusgnuj8jn"]
+
+[ext_resource type="Script" path="res://scenes/main_office.gd" id="1_u70lx"]
+[ext_resource type="Texture2D" uid="uid://bhmvnvr2afgt8" path="res://SceneArt/Janitor's closet.png" id="2_r1acr"]
+[ext_resource type="Script" path="res://scenes/item.gd" id="3_p5uu4"]
+[ext_resource type="PackedScene" uid="uid://xkgc22deglng" path="res://scenes/core/cursor_item.tscn" id="4_12tt8"]
+
+[node name="TrashDump" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u70lx")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 480.0
+offset_bottom = 321.0
+texture = ExtResource("2_r1acr")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Item" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 175.0
+offset_top = 78.0
+offset_right = 237.0
+offset_bottom = 116.0
+script = ExtResource("3_p5uu4")
+item_type = "MagnifyingGlass"
+self_destruct_id = 1
+goto_label = "PaperTowelPickup"
+
+[node name="Item2" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 352.0
+offset_top = 14.0
+offset_right = 410.0
+offset_bottom = 106.0
+script = ExtResource("3_p5uu4")
+item_type = "Phone"
+destroy_item = true
+goto_label = "JanitorSchedule"
+
+[node name="CursorItem" parent="." instance=ExtResource("4_12tt8")]
+layout_mode = 0
+
+[node name="InputBlocker" type="Control" parent="." groups=["InputBlocker"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[connection signal="mouse_entered" from="Item" to="Item" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Item" to="Item" method="_on_mouse_exited"]
+[connection signal="pressed" from="Item" to="Item" method="_on_pressed"]
+[connection signal="mouse_entered" from="Item2" to="Item2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Item2" to="Item2" method="_on_mouse_exited"]
+[connection signal="pressed" from="Item2" to="Item2" method="_on_pressed"]
